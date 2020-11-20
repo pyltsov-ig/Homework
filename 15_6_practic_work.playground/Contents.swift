@@ -55,9 +55,9 @@ func compareType<T1,T2>(firstValue:T1, secondValue:T2) -> String {
 print("44 и 31 одинакового типа? - "+compareType(firstValue: 44, secondValue: 31))
 print("200 и 200.0 одинакового типа? - "+compareType(firstValue: 200, secondValue: 200.0))
 print("YES и NO одинакового типа? - "+compareType(firstValue: "YES", secondValue: "NO"))
-print("78 и массив [1,2,3] одинакового типа"+compareType(firstValue: 78, secondValue: [1,2,3]))
+print("78 и массив [1,2,3] одинакового типа? - "+compareType(firstValue: 78, secondValue: [1,2,3]))
 
-struct S1000:Equatable{
+struct S1000{
     var X:Int
     var Y:Int
     var Z:Int
@@ -73,16 +73,16 @@ class C1000 {
 }
 
 let s1=S1000(X:25,Y:44,Z:70)
-let s2=S1000(X:25,Y:44,Z:70)
-let s3=S1000(X:10,Y:50,Z:30)
+let s2=S1000(X:33,Y:51,Z:90)
 
 let c1=C1000()
 let c2=C1000()
 
-print(compareType(firstValue: s1, secondValue: s2))
-print(compareType(firstValue: s2, secondValue: s3))
-print(compareType(firstValue: c1, secondValue: c2))
-print(compareType(firstValue: s2, secondValue: c1))
+print("Структура s1 и s2 одного типа? - \(compareType(firstValue: s1, secondValue: s2))")
+print("Два экземпляра одного класса одного типа? - " + compareType(firstValue: c1, secondValue: c2))
+print("Структура и экземпляр класса одного типа? - " + compareType(firstValue: s2, secondValue: c1))
+
+//
 
 
 
