@@ -5,7 +5,7 @@
 
 
 // создаем перечисление
-print("Задание - 1")
+print("Задание - 1\n")
 enum ServerError:Error{
     case badRequest             // ошибка 400
     case pageNotFound           // ошибка 404
@@ -16,12 +16,6 @@ enum ServerError:Error{
 var errorCode = 500
 
 
-// генерирующая функция
-func serverRequest() throws {
-    if errorCode == 400 {throw ServerError.badRequest}
-    if errorCode == 404 {throw ServerError.pageNotFound}
-    if errorCode == 500 {throw ServerError.internalServerError}
-}
 
 // обработка ошибки
 do {
@@ -34,15 +28,26 @@ do {
     print("Сервер не может выполнить ваш запрос в настоящее время. Попробуйте позже.")
 }
 
-print("********\n\n")
+print("\n********\n\n")
 
 
 //-------------------------
 
 // 2. Добавьте проверку переменных в генерирующую функцию и обработайте её
-print("Задание - 2")
+print("Задание - 2\n")
+print("""
+    Функция, которая генерирует ошибку.
+    В консоль ничего не выводит,
+    но генерирует ошибку, которая обрабатывается в Задании №1
+    """)
 
-print("*********\n\n")
+// генерирующая функция
+func serverRequest() throws {
+    if errorCode == 400 {throw ServerError.badRequest}
+    if errorCode == 404 {throw ServerError.pageNotFound}
+    if errorCode == 500 {throw ServerError.internalServerError}
+}
+print("\n*********\n\n")
 
 
 
@@ -54,7 +59,7 @@ print("*********\n\n")
 // — “No”.
 
 
-print("Задание - 3")
+print("Задание - 3\n")
 
 func compareType<T1,T2>(firstValue:T1, secondValue:T2) -> String {
     if type(of:T1.self) == type(of: T2.self) {return "Yes"}
@@ -92,14 +97,14 @@ print("Два экземпляра одного класса \(c1)  \(c2) одн
 print("Структура \(s2)  и экземпляр класса \(c1) одного типа? - " + compareType(firstValue: s2, secondValue: c1))
 
 
-print("********\n\n")
+print("\n********\n\n")
 
 //-------------------------------------
 
 //4. Реализуйте то же самое, но если тип входных значений различается, выбросите исключение.
 // Если тип одинаковый — тоже выбросите исключение, но оно уже будет говорить о том, что типы одинаковые.
 
-print("Задание - 4")
+print("Задание - 4\n")
 
 enum Exeption10:Error{
     case matchingType
@@ -129,9 +134,9 @@ do {
     print("Somthing Else")
 }
 
-print("*********\n\n")
+print("\n*********\n\n")
 
-print("Задание - 5")
+print("Задание - 5\n")
 
 
 func compareValue<T:Equatable>(fstValue:T, scdValue:T) -> String {
@@ -144,6 +149,7 @@ print(compareValue(fstValue: 200, scdValue: 200.0))
 print(compareValue(fstValue: "YES", scdValue: "YES"))
 print(compareValue(fstValue: "NO", scdValue: "No"))
 
+// посравниваем структуры, например
 struct S2000:Equatable{
     var X:Int
     var Y:Int
@@ -157,7 +163,8 @@ print(compareValue(fstValue: s10, scdValue: s20))
 print(compareValue(fstValue: s20, scdValue: s30))
 
 
-print("********\n\n")
+print("\n********\n\n")
+print("END!!!")
 
 
 
